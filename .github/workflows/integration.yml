@@ -18,6 +18,7 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
+          cd ..
           ls -lf
           ./.github/scripts/test_dep.sh
         shell: bash
