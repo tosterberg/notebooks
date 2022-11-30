@@ -20,15 +20,14 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
-          cd $HOME/work
-          ls -lf
+          cd $HOME/work/notebooks
           ./.github/scripts/test_dep.sh
-        shell: bash
       - name: Get dobs out
         run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
       - name: Set output by script
         id: script-out
-        run: ./.github/scripts/test.sh
-        shell: bash
+        run: |
+          cd $HOME/work/notebooks
+          ./.github/scripts/test.sh
       - name: Get obs out
         run: echo "The output is ${{ steps.script-out.outputs.tag_instance_id}}"
