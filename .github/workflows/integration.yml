@@ -18,12 +18,14 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
+          cd /home/ubuntu/notebooks/scripts
           ./test_dep.sh
       - name: Get dobs out
         run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
       - name: Set output by script
         id: script-out
         run: |
+          cd /home/ubuntu/notebooks/scripts
           ./test.sh
       - name: Get obs out
         run: echo "The output is ${{ steps.script-out.outputs.tag_instance_id}}"
