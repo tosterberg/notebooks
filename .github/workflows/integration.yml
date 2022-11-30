@@ -6,9 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set deprecated output
+        id: test-deprecated-action
         run: echo "::set-output name=TEST1::value1"
       - name: Get deprecated output
-        run: echo "The deprecated output is ${{ steps.outputs.TEST1}}"
+        run: echo "The deprecated output is ${{ steps.test-deprecated-action.outputs.TEST1}}"
       - name: Set output
         id: test-action
         run: echo "TEST2=value2" >> $GITHUB_OUTPUT
