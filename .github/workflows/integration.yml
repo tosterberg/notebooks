@@ -20,7 +20,7 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
-          cd $HOME/work/notebooks/
+          pwd 
           ls -lf
           ./.github/scripts/test_dep.sh
       - name: Get dobs out
