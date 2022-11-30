@@ -20,8 +20,7 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
-          pwd 
-          ls -lf
+          chmod +x ./.github/scripts/test_dep.sh
           ./.github/scripts/test_dep.sh
       - name: Get dobs out
         run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
