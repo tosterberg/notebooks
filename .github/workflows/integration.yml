@@ -1,12 +1,16 @@
 name: Integration tests
-run-name: ${{ github.actor }} is testing out integrations
+run-name: ${{ github.actor }} is testing out integrations outputs
 on: [push]
 jobs:
-  Test-GitHub-Actions:
+  test-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Set deprecated output
+        run: echo "::set-output name=TEST1::value1"
+      - name: Get deprecated output
+        run: echo "The deprecated output is ${{ steps.outputs.TEST1}}"
       - name: Set output
-        run: echo "::set-output name=test1::value1"
-      - name: Set output
-        run: echo "test2=value2" >> $GITHUB_OUTPUT
-      - run: echo "$GITHUB_OUTPUT"
+        id: test-action
+        run: echo "TEST2=value2" >> $GITHUB_OUTPUT
+      - name: Get output
+        run: echo "The output is ${{ steps.test-action.outputs.TEST2}}"
