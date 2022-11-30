@@ -31,9 +31,11 @@ jobs:
           ./.github/scripts/test.sh
       - name: Get obs out
         run: echo "The output is ${{ steps.script-out.outputs.TEST4}}"
+    outputs:
+      test_outputs: ${{ steps.script-out.outputs.TEST4 }}
   get-github-var:
     runs-on: ubuntu-latest
     needs: [test-github-actions]
     steps:
       - name: test_outputs
-        run: echo "The output is ${{ steps.script-out.outputs.TEST4}}"
+        run: echo "The output is ${{ needs.test-github-actions.outputs.test_outputs }}"
