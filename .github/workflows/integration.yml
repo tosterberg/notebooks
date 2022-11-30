@@ -5,8 +5,6 @@ jobs:
   test-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Set deprecated output
         id: test-deprecated-action
         run: echo "::set-output name=TEST1::value1"
@@ -27,7 +25,7 @@ jobs:
       - name: Set output by script
         id: script-out
         run: |
-          cd $HOME/work/notebooks/.github/scripts
-          ./test.sh
+          chmod +x ./.github/scripts/test.sh
+          ./.github/scripts/test.sh
       - name: Get obs out
         run: echo "The output is ${{ steps.script-out.outputs.tag_instance_id}}"
