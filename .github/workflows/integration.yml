@@ -5,6 +5,8 @@ jobs:
   test-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Set deprecated output
         id: test-deprecated-action
         run: echo "::set-output name=TEST1::value1"
