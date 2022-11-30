@@ -1,0 +1,12 @@
+name: Integration tests
+run-name: ${{ github.actor }} is testing out integrations
+on: [push]
+jobs:
+  Test-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set output
+        run: echo "::set-output name=test1::value1"
+      - name: Set output
+        run: echo "test2=value2" >> $GITHUB_OUTPUT
+      - run: echo "$GITHUB_OUTPUT"
