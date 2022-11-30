@@ -23,11 +23,11 @@ jobs:
           chmod +x ./.github/scripts/test_dep.sh
           ./.github/scripts/test_dep.sh
       - name: Get dobs out
-        run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
+        run: echo "The output is ${{ steps.script-dep-out.outputs.TEST3}}"
       - name: Set output by script
         id: script-out
         run: |
           chmod +x ./.github/scripts/test.sh
           ./.github/scripts/test.sh
       - name: Get obs out
-        run: echo "The output is ${{ steps.script-out.outputs.tag_instance_id}}"
+        run: echo "The output is ${{ steps.script-out.outputs.TEST4}}"

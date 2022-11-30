@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "tag_instance_id=instance_id" >> "$GITHUB_OUTPUT"
+echo "TEST4=value4" >> "$GITHUB_OUTPUT"
