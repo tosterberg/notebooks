@@ -17,7 +17,9 @@ jobs:
         run: echo "The output is ${{ steps.test-action.outputs.TEST2}}"
       - name: Set deprecated output by script
         id: script-dep-out
-        run: ./.github/scripts/test_dep.sh
+        run: |
+          ls -lf
+          ./.github/scripts/test_dep.sh
         shell: bash
       - name: Get dobs out
         run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
