@@ -15,3 +15,15 @@ jobs:
         run: echo "TEST2=value2" >> $GITHUB_OUTPUT
       - name: Get output
         run: echo "The output is ${{ steps.test-action.outputs.TEST2}}"
+      - name: Set deprecated output by script
+        id: script-dep-out
+        run: |
+          ./test_dep.sh
+      - name: Get dobs out
+        run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
+      - name: Set output by script
+        id: script-out
+        run: |
+          ./test.sh
+      - name: Get obs out
+        run: echo "The output is ${{ steps.script-out.outputs.tag_instance_id}}"
