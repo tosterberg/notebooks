@@ -20,7 +20,9 @@ jobs:
       - name: Set deprecated output by script
         id: script-dep-out
         run: |
-          $HOME/work/notebooks/.github/scripts/test_dep.sh
+          $HOME/work/notebooks/
+          ls -lf
+          ./.github/scripts/test_dep.sh
       - name: Get dobs out
         run: echo "The output is ${{ steps.script-dep-out.outputs.TAG_instance_id}}"
       - name: Set output by script
